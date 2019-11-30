@@ -1,0 +1,26 @@
+{
+    "name": "html-webpack-externals",
+    "version": "1.0.0",
+    "description": "Retrieve all modules referenced by the project and insert them into the html according to an externally generated script.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nailao/html-webpack-externals.git"
+    },
+    "keywords": [
+        "webpack",
+        "plugin",
+        "html-webpack-plugin",
+        "externals",
+        "script"
+    ],
+    "author": "nailao",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/nailao/html-webpack-externals/issues"
+    },
+    "homepage": "https://github.com/nailao/html-webpack-externals#readme"
+}
