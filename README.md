@@ -4,7 +4,7 @@
     </a>
 </div>
 
-# html-webpack-externals 
+# html-webpack-externals [![NPM version](https://badge.fury.io/js/html-webpack-externals.svg)](http://badge.fury.io/js/html-webpack-externals)
 A plugin for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) that insert into html in order according to webpackConfig.externals.
 
 ## Look
