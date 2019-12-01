@@ -1,20 +1,24 @@
+<div align="center">
+    <a href="https://github.com/webpack/webpack">
+        <img width="200" height="200" src="https://webpack.js.org/assets/icon-square-big.svg">
+    </a>
+</div>
 
-# html-webpack-externals [![NPM version](https://badge.fury.io/js/html-webpack-externals.svg)](http://badge.fury.io/js/html-webpack-externals)
-
+# html-webpack-externals 
 A plugin for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) that insert into html in order according to webpackConfig.externals.
 
-## Install
+## Look
+This plugin must webpack >= 4, html-webpack-plugin >= 4.0.
 
+## Install
 ```shell
 $ npm install html-webpack-externals --save-dev
 ```
 
 ### Example
-
 ```js
 const webpackHtmlPlugin = require('html-webpack-plugin');
 const webpackHtmlExternals = require('html-webpack-externals');
-
 {
     externals: {
         'socketio': 'io'
@@ -29,5 +33,4 @@ const webpackHtmlExternals = require('html-webpack-externals');
         })
     ]
 }
-
 ```

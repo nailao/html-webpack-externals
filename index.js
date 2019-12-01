@@ -1,4 +1,3 @@
-// If your plugin is direct dependent to the html webpack plugin:
 const webpackHtml = require('html-webpack-plugin');
 
 class htmlWebpackExternals {
@@ -12,7 +11,6 @@ class htmlWebpackExternals {
     }
     apply(compiler) {
         compiler.hooks.compilation.tap('htmlWebpackExternals', compilation => {
-            // Static Plugin interface |compilation |HOOK NAME | register listener 
             webpackHtml.getHooks(compilation).beforeAssetTagGeneration.tap('htmlWebpackExternals', data => {
                 let entryOptions = compilation.options;
                 let chunksModules = [];
@@ -33,7 +31,15 @@ class htmlWebpackExternals {
                     externalsList = Array.from(new Set(externalsList)).filter(value => value.length);
                     // Insert into html in order according to webpackConfig.externals
                     !externalsList.length || Object.keys(entryOptions.externals || []).reverse().forEach(value => {
-                        !externalsList.includes(value) || data.assets.js.unshift(this.options.resolve[value] || `${entryOptions.output.publicPath + this.options.dirname}/${value}.js`);
+                        if (externalsList.includes(value)) {
+                            let fileUrl = this.options.resolve[value];
+                            if (!fileUrl) {
+                                fileUrl = entryOptions.output.publicPath;
+                                fileUrl = (fileUrl.charAt(fileUrl.length - 1) !== '/' ? `${fileUrl}/` : fileUrl) + this.options.dirname;
+                                fileUrl = (fileUrl.charAt(fileUrl.length - 1) !== '/' ? `${fileUrl}/` : fileUrl) + `${value}.js`;
+                            }
+                            data.assets.js.unshift(fileUrl);
+                        }
                     });
                 }
             });

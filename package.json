@@ -1,6 +1,6 @@
 {
     "name": "html-webpack-externals",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Retrieve all modules referenced by the project and insert them into the html according to an externally generated script.",
     "main": "index.js",
     "scripts": {
